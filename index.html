@@ -1,0 +1,121 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HW2 Project: Audio Visualizer</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#description">Description</a></li>
+                <li><a href="#screenshots">Screenshots</a></li>
+                <li><a href="#video">Video</a></li>
+                <li><a href="#instructions">Instructions</a></li>
+                <li><a href="#downloads">Downloads</a></li>
+                <li><a href="#code">ChucK Code</a></li>
+                <li><a href="#feedback">Feedback</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="description">
+            <h1>Audio Visualizer: SoundCRT</h1>
+            <p>View the time and frequency domain of any audio source, but on an old-timey cathode ray tube television! The frequency domain is displayed as a waterfall plot on the TV's monitor, and the time domain is projected as an electric spark moving up the antennas. This program allows the user to navigate between 8 different audio sources (via the channel knob), as well as take microphone input.</p>
+        </section>
+
+        <section id="screenshots">
+            <h2>Screenshots</h2>
+            <div class="screenshot-container">
+                <div class="screenshot">
+                    <img src="screenshot1.png" alt="Screenshot 1">
+                    <p>SndCRT when off.</p>
+                </div>
+                <div class="screenshot">
+                    <img src="screenshot2.png" alt="Screenshot 2">
+                    <p>SndCRT during "daisy.ck"</p>
+                </div>
+                <div class="screenshot">
+                    <img src="screenshot3.png" alt="Screenshot 3">
+                    <p>SndCRT with TV static</p>
+                </div>
+            </div>
+        </section>
+        
+
+        <section id="video">
+            <h2>Video</h2>
+            <div class="video-container">
+                <!-- Replace 'YOUR_YOUTUBE_VIDEO_ID' with the actual video ID from YouTube -->
+                <a href="https://www.youtube.com/watch?v=ajNfHF1cYSA" target="_blank">
+                    <div class="video-thumbnail" data-video-id="ajNfHF1cYSA">
+                        <img src="placeholder-thumbnail.jpg" alt="Video Thumbnail">
+                    </div>
+                </a>
+            </div>
+        </section>
+        
+
+        <section id="instructions">
+            <h2>Instructions</h2>
+            <p>Navigate channel (audio sources) with left and right arrow keys. Adjust volume (time and frequency domain sensitivity to input) with up and down arrow keys. Leftmost gray dot indicates "off" channel for TV. Navigate to the red dot to capture microphone audio.</p>
+        </section>
+
+        <section id="downloads">
+            <h2>Downloads</h2>
+            <div class="download-links">
+                <p><strong>SndCRT Download:</strong></p>
+                <p><a href="https://ccrma.stanford.edu/~eljbuck/256A/hw2/sndcrt.zip" download>Download .zip file</a></p>
+            </div>
+       </section>
+       
+
+        <section id="code">
+            <h2>ChucK Code</h2>
+            <p><a href="sndcrt.ck">sndcrt.ck</a></p>
+            <p><a href="KB.ck">KB.ck</a></p>
+            <p><a href="change.ck">change.ck</a></p>
+            <p><a href="change_click.ck">change_click.ck</a></p>
+            <p><a href="daisy.ck">daisy.ck</a></p>
+            <p><a href="asimov.ck">asimov.ck</a></p>
+            <p><a href="computermusic.ck">computermusic.ck</a></p>
+            <p><a href="osc.ck">osc.ck</a></p>
+            <p><a href="popeye.ck">popeye.ck</a></p>
+            <p><a href="twilight.ck">twilight.ck</a></p>
+            <p><a href="mtv.ck">mtv.ck</a></p>
+        </section>
+
+        <section id="feedback">
+            <h2>Feedback and Reflection</h2>
+            <p>Though this assignment was a doozy (and I very narrowly avoided several ear drum ruptures via ChuCK meltdowns), I had a ton of fun working on this project. It was especially fun to see how the medium of a CRT TV led me to think of more and more potential additions (far more than I have the technical ability to implement). I also really enjoy how this medium allowed me to create the sound narrative, though I wish I had more time to fully realize my vision for it (my intention was for a much more 'horror-core' aesthetic, but I think I successfully achieved 'creepy'). The most challenging part of this process was definitely the nuts and bolts of the sound narrative (i.e. actually connecting all of the different audio sources to the visualizer's mechanics). This seemed easy at first, but then I realized that the gain levels started to get unwieldy extremely fast with all of the various sound sources and sporked shreds. The levels currently are not ideal, and I still don't have a full grasp over all of the different considerations when sporking/Machine.add'ing multiple shreds into one Gain input, but regardless, I feel I have a fully-functioning product that I am proud of! Shout out to Andrew for helping me a lot to get the control logic of different audio sources with Machine.add working! Also, thanks to Andrew for the original inspiration to have the TV go into a 'creepy' direction.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Ethan Buck</p>
+    </footer>
+
+    <script>
+        // Function to replace the placeholder thumbnail with the actual YouTube video thumbnail
+        function loadYouTubeThumbnail() {
+            var thumbnailContainers = document.querySelectorAll('.video-thumbnail');
+    
+            thumbnailContainers.forEach(function (container) {
+                var videoId = container.getAttribute('data-video-id');
+                if (videoId) {
+                    var thumbnailUrl = 'https://img.youtube.com/vi/' + videoId + '/maxresdefault.jpg';
+                    var img = container.querySelector('img');
+                    img.src = thumbnailUrl;
+                }
+            });
+        }
+    
+        // Load the YouTube thumbnails when the page is fully loaded
+        window.addEventListener('load', loadYouTubeThumbnail);
+    </script>
+    
+</body>
+</html>
